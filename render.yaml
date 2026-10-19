@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: loud-win-zone-auto-delete-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DELETE_AFTER_SECONDS
+        value: "30"
+      - key: AUTO_DELETE_ENABLED
+        value: "true"
